@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #E3F2FD;
+}
+.wrapper{
+    background-color: #0b8fff;
+    padding: 30px 30px 35px;
+    border-radius: 7px;
+    width: 420px;
+    height: 270px;
+    transition: height 0.2s ease;
+}
+.wrapper.active{
+    height: 525px;
+}
+.wrapper form{
+    height: 210px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 7px;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: height 0.2s ease;
+}
+.wrapper.active form{
+    height: 225px;
+    pointer-events: none;
+}
+form img{
+    display: none;
+    max-width: 148px;
+}
+.wrapper.active form img{
+    display: block;
+}
+.wrapper.active form .content{
+    display: none;
+}
+form .content i{
+    color: #0b85ff;
+    font-size: 55px;
+}
+form .content p{
+    color: #0b85ff;
+    margin-top: 15px;
+    font-style: 16px;
+}
+.wrapper .details{
+    margin-top: 25px;
+    opacity: 0;
+    pointer-events: none;
+}
+.wrapper.active .details{
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.5s 0.05s ease;
+}
+.wrapper .details textarea{
+    width: 100%;
+    height: 125px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    background: none;
+    padding: 10px 15px;
+}
+.wrapper .details .buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.buttons button{
+    height: 55px;
+    width: calc(100%/2 - 10px);
+    outline: none;
+    border: none;
+    background-color: #fff;
+    color: #0b85ff;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.toast-message{
+    position: fixed;
+	z-index: 999;
+	top: 2rem;
+	right: 2rem;
+	background-color: rgb(19, 201, 110);
+	color: #000;
+	border: 1px solid #fff;
+	border-radius: 0.25rem;
+	padding: 1rem 2rem;
+	cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.toast-message-slide-in {
+	animation: toast-animation-in 0.5s ease-in;
+}
+
+.toast-message-slide-out {
+	animation: toast-animation-out 0.5s ease-in;
+}
+@keyframes toast-animation-in {
+	from {
+		transform: translateX(200px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes toast-animation-out {
+	from {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(200px);
+		opacity: 0;
+	}
+}

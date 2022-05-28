@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>QR Code Scanner</title>
+</head>
+
+<body>
+    <div class="wrapper" id="wrapper">
+        <form action="#" id="form">
+            <input type="file" id="file" hidden>
+            <img src="#" alt="" id="qrImg">
+            <div class="content">
+                <i class="fas fa-cloud-upload"></i>
+                <p id="qrText">Upload QR Code to Read</p>
+            </div>
+        </form>
+        <div class="details">
+            <textarea spellcheck="false" disabled id="qrRead">This is a texarea</textarea>
+            <div class="buttons">
+                <button class="close" id="close">Close</button>
+                <button class="copy" id="copy">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
