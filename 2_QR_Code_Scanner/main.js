@@ -9,7 +9,6 @@ let close = document.getElementById("close");
 let div = null;
 
 fileInput.addEventListener('change',(e)=>{
-    console.log("hello");
     let file = e.target.files[0];
     let formData = new FormData();
     formData.append("file",file);
@@ -20,7 +19,7 @@ form.addEventListener('click',()=>fileInput.click());
 
 const fetchQRCode = (formData,file)=>{
     qrText.innerHTML = "Scanning QR Code...";
-    fetch("http://api.qrserver.com/v1/read-qr-code/",{
+    fetch("https://api.qrserver.com/v1/read-qr-code/",{
         method: "POST",
         body: formData
     }).then(result=>result.json()).then(data=>{
