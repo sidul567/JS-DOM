@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #5372f0;
+}
+.container{
+    width: 690px;
+    border-radius: 7px;
+    background-color: #fff;
+    padding: 30px;
+}
+.wrapper{
+    border-radius: 5px;
+    border: 1px solid #bbb;
+}
+.wrapper .text-input{
+    display: flex;
+    border-bottom: 1px solid #bbb;
+}
+.wrapper .text-input .to-text{
+    border-radius: 0;
+    border-left: 1px solid #bbb;
+}
+.text-input textarea{
+    height: 250px;
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 18px;
+    border-radius: 5px;
+    background: none;
+    padding: 10px 15px;
+}
+.controls, li, .icons, .icons i{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.controls{
+    list-style-type: none;
+    padding: 12px 15px;
+}
+.controls .row.from .icons{
+    border-right: 1px solid #bbb;
+    padding-right: 15px;
+}
+.controls .row.to .icons{
+    border-left: 1px solid #bbb;
+    padding-left: 15px;
+}
+.controls .icons{
+    width: 38%;
+}
+.controls .icons i{
+    width: 50px;
+    color: #9f9f9f;
+    font-size: 14px;
+    cursor: pointer;
+    justify-content: center;
+}
+.controls .row select{
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+}
+.controls .exchange{
+    color: #9f9f9f;
+    font-size: 16px;
+    cursor: pointer;
+}
+.container button{
+    padding: 14px;
+    margin-top: 20px;
+    background-color: #5372f0;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+}
+.toast-message{
+    position: fixed;
+	z-index: 999;
+	top: 2rem;
+	right: 2rem;
+	background-color: rgb(19, 201, 110);
+	color: #000;
+	border: 1px solid #fff;
+	border-radius: 0.25rem;
+	padding: 1rem 2rem;
+	cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.toast-message-slide-in {
+	animation: toast-animation-in 0.5s ease-in;
+}
+
+.toast-message-slide-out {
+	animation: toast-animation-out 0.5s ease-in;
+}
+@keyframes toast-animation-in {
+	from {
+		transform: translateX(200px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes toast-animation-out {
+	from {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(200px);
+		opacity: 0;
+	}
+}
