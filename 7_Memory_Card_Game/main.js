@@ -108,10 +108,10 @@ function shuffleCard(){
         card.removeEventListener('click',flipCard);
     })
     setTimeout(() => {
-        cards.forEach((card,index)=>{
+        cards.forEach(card=>{
             card.classList.remove('flip');
             card.addEventListener('click',flipCard);
         })
     }, 1500);
 }
-shuffleCard();
+window.addEventListener('load',()=>shuffleCard());
