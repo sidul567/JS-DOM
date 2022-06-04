@@ -2,6 +2,8 @@ let cards = document.querySelectorAll('.card');
 let time = document.querySelector('.details .time');
 let flip = document.querySelector('.details .flips');
 let refreshBtn = document.querySelector('.details button');
+let popup = document.querySelector('.popup-box');
+let popupCloseBtn = document.querySelector('.popup-box i');
 let disableFlip = false;
 let matchCountCard = 0;
 let flipCount = 0;
@@ -9,9 +11,20 @@ let timeCount = 60;
 let isTimeEnd = false;
 let timer = null;
 let isWatch = false;
-
 let cardOne, cardTwo;
 time.innerHTML = `Time: ${timeCount}s`;
+
+popupCloseBtn.addEventListener('click',()=>{
+    popup.classList.remove('show');
+    timeCount = 60;
+    time.innerHTML = `Time: ${timeCount}s`;
+    isTimeEnd = false;
+    isWatch = false;
+    flipCount = 0;
+    flip.innerHTML = `Flips: ${flipCount}`;
+    shuffleCard();
+})
+
 function timeChange(){
     timeCount--;
     if(timeCount < 0){
@@ -24,13 +37,16 @@ function timeChange(){
 }
 
 refreshBtn.addEventListener('click',()=>{
-    timeCount = 60;
-    time.innerHTML = `Time: ${timeCount}s`;
-    isTimeEnd = false;
-    isWatch = false;
-    flipCount = 0;
-    flip.innerHTML = `Flips: ${flipCount}`;
-    shuffleCard();
+    if(!disableFlip){
+        timeCount = 60;
+        time.innerHTML = `Time: ${timeCount}s`;
+        isTimeEnd = false;
+        isWatch = false;
+        flipCount = 0;
+        flip.innerHTML = `Flips: ${flipCount}`;
+        clearInterval(timer);
+        shuffleCard();
+    }
 })
 
 function flipCard(e){
@@ -57,11 +73,13 @@ function flipCard(e){
 function match(img1, img2){
     if(img1 === img2){
         matchCountCard += 2;
-        setTimeout(()=>{
-            if(matchCountCard === 16){
-                return shuffleCard();
-            }
-        },1000)
+        if(matchCountCard === 16){
+            clearInterval(timer);
+            popup.classList.add('show');
+            popup.querySelector('.time').innerHTML = `Time: ${60 - timeCount < 10? '0'+(60 - timeCount): 60 - timeCount}s`;
+            popup.querySelector('.flips').innerHTML = `Flips: ${flipCount}`;
+            // return shuffleCard();
+        }
         cardOne.removeEventListener('click',flipCard);
         cardTwo.removeEventListener('click',flipCard);
         cardOne = cardTwo = "";
@@ -87,10 +105,13 @@ function shuffleCard(){
     cards.forEach((card,index)=>{
         card.querySelector('.back-view img').src = `img/img-${arr[index]}.png`;
         card.classList.add('flip');
-        setTimeout(() => {
+        card.removeEventListener('click',flipCard);
+    })
+    setTimeout(() => {
+        cards.forEach((card,index)=>{
             card.classList.remove('flip');
             card.addEventListener('click',flipCard);
-        }, 1500);
-    })
+        })
+    }, 1500);
 }
 shuffleCard();
