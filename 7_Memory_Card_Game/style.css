@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 body{
     display: flex;
@@ -83,6 +84,10 @@ body{
 }
 .card .back-view img{
     max-width: 45px;
+}
+.card .back-view img:focus{
+    outline: none;
+    border: none;
 }
 .cards .details{
     width: 100%;
