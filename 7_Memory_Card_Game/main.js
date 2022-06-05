@@ -31,6 +31,9 @@ function timeChange(){
         isTimeEnd = true;
         clearInterval(timer);
         cards.forEach(card=>card.removeEventListener('click',flipCard));
+        popup.classList.add('show');
+        popup.querySelector('img').src = 'img/gameover.png';
+        popup.querySelector('main').classList.add('hide');
     }else{
         time.innerHTML = `Time: ${timeCount < 10? '0'+timeCount: timeCount}s`;
     }
@@ -76,6 +79,8 @@ function match(img1, img2){
         if(matchCountCard === 16){
             clearInterval(timer);
             popup.classList.add('show');
+            popup.querySelector('main').classList.remove('hide');
+            popup.querySelector('img').src = 'img/congratulations.png';
             popup.querySelector('.time').innerHTML = `Time: ${60 - timeCount < 10? '0'+(60 - timeCount): 60 - timeCount}s`;
             popup.querySelector('.flips').innerHTML = `Flips: ${flipCount}`;
             // return shuffleCard();
