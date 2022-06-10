@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #17a2b8;
+}
+.wrapper{
+    width: 770px;
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 10px;
+}
+.wrapper .content-box{
+    padding: 13px 20px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+.wrapper .typing-text{
+    max-height: 255px;
+    overflow-y: auto;
+}
+.wrapper .typing-text::-webkit-scrollbar{
+    width: 0;
+}
+.wrapper .typing-text p{
+    font-size: 21px;
+    text-align: justify;
+    letter-spacing: 1px;
+    word-break: break-all;
+}
+.wrapper .typing-text p span{
+    position: relative;
+}
+.wrapper .typing-text p span.correct{
+    color: #56964f;
+}
+.wrapper .typing-text p span.incorrect{
+    color: #cb3439;
+    background-color: #ffc0cb;
+    border-radius: 4px;
+    outline: 1px solid #fff;
+}
+.wrapper .typing-text p span.active{
+    color: #17a2b8;
+}
+.wrapper .typing-text p span.active::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    opacity: 0;
+    background-color: #17a2b8;
+    animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity: 1;
+    }
+}
+.wrapper .input-field{
+    z-index: -1;
+    opacity: 0;
+    position: absolute;
+}
+.wrapper .content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 17px;
+    padding: 12px 0;
+    border-top: 1px solid #ccc;
+}
+.wrapper .content button{
+    border: none;
+    outline: none;
+    width: 105px;
+    padding: 8px 0;
+    background-color: #17a2b8;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+.wrapper .content button:active{
+    transform: scale(0.97);
+}
+.wrapper .result-details{
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 140px);
+}
+.wrapper .result-details li{
+    display: flex;
+    height: 22px;
+}
+.wrapper .result-details li:not(:first-child){
+    border-left: 1px solid #ccc;
+    padding-left: 22px;
+}
+.wrapper .result-details li b{
+    font-weight: 500;
+}
+.wrapper .result-details li:not(:first-child) span{
+    font-weight: 500;
+}
+.wrapper .result-details p{
+    font-size: 19px;
+}
+.wrapper .result-details span{
+    font-size: 20px;
+    display: block;
+    margin-left: 10px;
+}
